@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "firebase": "^2.4.1",
-    "history": "^2.0.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",

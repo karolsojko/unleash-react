@@ -1,0 +1,5 @@
+web:
+  image: node:5.7
+  volumes:
+    - .:/var/www/unleash
+  working_dir: /var/www/unleash

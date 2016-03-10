@@ -1,16 +1,15 @@
 import React from 'react';
-import Main from '../components/Main';
-import Home from '../components/Home';
-import Path from '../components/Paths/Path';
-import Templates from '../components/Paths/Templates';
-import Router from 'react-router';
-const Route = Router.Route;
-const IndexRoute = Router.IndexRoute;
+import UnleashApp from '../components/UnleashApp';
+import Menu from '../components/Menu';
+import Paths from '../components/Paths';
+import Skills from '../components/Skills';
+import Templates from '../components/Templates';
+import { Route, IndexRoute } from 'react-router';
 
 export default (
-  <Route path="/" component={Main}>
-    <Route path="paths/:userId" component={Path} />
-    <Route path="templates" component={Templates} />
-    <IndexRoute component={Home}/>
+  <Route path="/" component={UnleashApp}>
+    <Route path="/paths" component={Paths} />
+    <Route path="/skills" component={Skills} />
+    <Route path="/templates" component={Templates} />
   </Route>
 );

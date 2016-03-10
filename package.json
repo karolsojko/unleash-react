@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "firebase": "^2.4.1",
+    "re-base": "^1.5.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",

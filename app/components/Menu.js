@@ -13,7 +13,7 @@ class Menu extends React.Component {
                   <Link to="/paths">All paths</Link>
                 </li>
                 <li>
-                  <a href="#">Your public path</a>
+                  <Link to="/">Your public path</Link>
                 </li>
                 <li>
                   <Link to="/templates">Edit Templates</Link>

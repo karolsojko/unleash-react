@@ -1,11 +1,11 @@
-var React = require('react');
+import React from 'react';
 
-var Path = React.createClass({
-  render: function(){
+class Path extends React.Component {
+  render() {
     return (
       <div>path</div>
     )
   }
-});
+}
 
-module.exports = Path;
+export default Path;

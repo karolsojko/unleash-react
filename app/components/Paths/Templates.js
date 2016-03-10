@@ -1,11 +1,11 @@
-var React = require('react');
+import React from 'react';
 
-var Templates = React.createClass({
-  render: function() {
+class Templates extends React.Component {
+  render() {
     return (
       <div>templates</div>
     )
   }
-});
+}
 
-module.exports = Templates;
+export default Templates;

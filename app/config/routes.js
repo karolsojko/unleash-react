@@ -1,13 +1,13 @@
-var React = require('react');
-var Main = require('../components/Main');
-var Home = require('../components/Home');
-var Path = require('../components/Paths/Path');
-var Templates = require('../components/Paths/Templates');
-var Router = require('react-router');
-var Route = Router.Route;
-var IndexRoute = Router.IndexRoute;
+import React from 'react';
+import Main from '../components/Main';
+import Home from '../components/Home';
+import Path from '../components/Paths/Path';
+import Templates from '../components/Paths/Templates';
+import Router from 'react-router';
+const Route = Router.Route;
+const IndexRoute = Router.IndexRoute;
 
-module.exports = (
+export default (
   <Route path="/" component={Main}>
     <Route path="paths/:userId" component={Path} />
     <Route path="templates" component={Templates} />

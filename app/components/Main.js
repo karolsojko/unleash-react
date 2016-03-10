@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var Main = React.createClass({
-  render: function(){
+class Main extends React.Component {
+  render(){
     return (
       <div>
         <div>
@@ -28,6 +28,6 @@ var Main = React.createClass({
       </div>
     )
   }
-});
+}
 
-module.exports = Main;
+export default Main;

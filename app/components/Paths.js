@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import * as UserActions from '../actions/UserActions.js';
+import * as UserActions from '../actions/UserActions';
 
 export class Paths extends React.Component {
   componentDidMount() {

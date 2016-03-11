@@ -1,45 +1,50 @@
 import React from 'react';
-import Rebase from 're-base';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import * as UserActions from '../actions/UserActions.js';
 
-const base = Rebase.createClass('https://unleash-app-staging.firebaseio.com/');
-
-class Paths extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: []
-    };
-  }
+export class Paths extends React.Component {
   componentDidMount() {
-    this.init();
-  }
-  componentWillUnmount(){
-    base.removeBinding(this.ref);
-  }
-  init() {
-    this.ref = base.bindToState('users', {
-      context: this,
-      asArray: true,
-      state: 'users'
-    });
+    this.props.actions.userList();
   }
   render() {
+    const { users } = this.props;
+    const paths = [];
+    for (const id in users) {
+      paths.push(
+        <li key={users[id].username}>
+          <Link to={'/paths/' + users[id].username}>{users[id].username}</Link>
+        </li>
+      );
+    }
+
     return (
       <div>
         <h1>List of paths</h1>
         <ul>
-        {this.state.users.map((user, index) => {
-          return (
-            <li key={user.username}>
-              <Link to={'/paths/' + user.username}>{user.username}</Link>
-            </li>
-          )
-        })}
+          {paths}
         </ul>
       </div>
     )
   }
 };
 
-export default Paths;
+Paths.propTypes = {
+  actions: React.PropTypes.object.isRequired,
+  users: React.PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    users: state.users
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(UserActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Paths);

@@ -13,7 +13,7 @@ export default (
     <Route path="/paths" component={Paths} />
     <Route path="/paths/:username" component={Path} />
     <Route path="/skills" component={Skills} />
-    <Route path="/skill/:name" component={Skill} />
+    <Route path="/skills/:name" component={Skill} />
     <Route path="/templates" component={Templates} />
   </Route>
 );

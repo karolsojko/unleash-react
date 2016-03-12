@@ -7,7 +7,6 @@ class UnleashApp extends React.Component {
     return (
       <div>
         <Menu />
-        <div>Hello World</div>
         {children}
       </div>
     )

@@ -3,7 +3,7 @@ import React from 'react';
 class Path extends React.Component {
   render() {
     return (
-      <div>Hello {this.props.params.username}</div>
+      <div>Path of {this.props.params.username}</div>
     )
   }
 };

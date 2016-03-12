@@ -3,28 +3,33 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as SkillActions from '../actions/SkillActions';
+import Avatar from 'material-ui/lib/avatar';
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
 
 export class Skills extends React.Component {
   componentDidMount() {
     this.props.actions.skillList();
+  }
+  handleSkillSelect(skillName) {
+    this.context.router.push('/skills/' + skillName);
   }
   render() {
     const { skills } = this.props;
     const skillLinks = [];
     for (const id in skills) {
       skillLinks.push(
-        <li key={skills[id].name}>
-          <Link to={'/skill/' + skills[id].name}>{skills[id].name}</Link>
-        </li>
+        <ListItem
+          key={skills[id].name}
+          primaryText={skills[id].name}
+          onTouchTap={() => this.handleSkillSelect(skills[id].name)}
+        />
       );
     }
     return (
-      <div>
-        <h1>List of skills</h1>
-          <ul>
-            {skillLinks}
-          </ul>
-      </div>
+      <List>
+        {skillLinks}
+      </List>
     )
   }
 };
@@ -32,6 +37,10 @@ export class Skills extends React.Component {
 Skills.propTypes = {
   actions: React.PropTypes.object.isRequired,
   skills: React.PropTypes.object.isRequired
+};
+
+Skills.contextTypes = {
+  router: React.PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {

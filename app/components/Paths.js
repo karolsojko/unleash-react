@@ -3,29 +3,36 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
+import Avatar from 'material-ui/lib/avatar';
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
 
 export class Paths extends React.Component {
   componentDidMount() {
     this.props.actions.userList();
+  }
+  handlePathSelect(username) {
+    this.context.router.push('/paths/' + username);
   }
   render() {
     const { users } = this.props;
     const paths = [];
     for (const id in users) {
       paths.push(
-        <li key={users[id].username}>
-          <Link to={'/paths/' + users[id].username}>{users[id].username}</Link>
-        </li>
+          <ListItem
+            key={users[id].username}
+            primaryText={users[id].google.displayName}
+            secondaryText={users[id].google.cachedUserProfile.email}
+            leftAvatar={<Avatar src={users[id].google.cachedUserProfile.picture} />}
+            onTouchTap={() => this.handlePathSelect(users[id].username)}
+          />
       );
     }
 
     return (
-      <div>
-        <h1>List of paths</h1>
-        <ul>
-          {paths}
-        </ul>
-      </div>
+      <List>
+        {paths}
+      </List>
     )
   }
 };
@@ -33,6 +40,10 @@ export class Paths extends React.Component {
 Paths.propTypes = {
   actions: React.PropTypes.object.isRequired,
   users: React.PropTypes.object.isRequired
+};
+
+Paths.contextTypes = {
+  router: React.PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {

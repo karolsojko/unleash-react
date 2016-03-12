@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom';
 import { Router, hashHistory } from 'react-router';
 import routes from './config/routes';
 import configureStore from './store/configureStore';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 const store = configureStore();
 

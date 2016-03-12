@@ -1,9 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as SkillActions from '../actions/SkillActions';
-import Avatar from 'material-ui/lib/avatar';
 import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 

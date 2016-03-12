@@ -1,3 +1,5 @@
+import assignToEmpty from '../utils/assign';
+
 function usersReducer(users = {}, action) {
   Object.freeze(users);
 
@@ -11,6 +13,13 @@ function usersReducer(users = {}, action) {
       return newUsers;
     case 'USER_LIST_FAILURE':
       return {};
+    case 'USER_GET_SUCCESS':
+      return assignToEmpty(users, {
+        [action.user.username]: action.user
+      });
+    case 'USER_GET_FAILURE':
+      newUsers = assignToEmpty(users);
+      return newUsers;
     default:
       return users;
   }

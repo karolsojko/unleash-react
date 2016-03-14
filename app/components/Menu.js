@@ -3,6 +3,11 @@ import AppBar from 'material-ui/lib/app-bar';
 import LeftNav from 'material-ui/lib/left-nav';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import RaisedButton from 'material-ui/lib/raised-button';
+import ActionHome from 'material-ui/lib/svg-icons/action/home';
+import ActionAccountCircle from 'material-ui/lib/svg-icons/action/account-circle';
+import ActionSupervisorAccount from 'material-ui/lib/svg-icons/action/supervisor-account';
+import ActionDashboard from 'material-ui/lib/svg-icons/action/dashboard';
+import ActionGrade from 'material-ui/lib/svg-icons/action/grade';
 
 class Menu extends React.Component {
   constructor(props) {
@@ -30,11 +35,11 @@ class Menu extends React.Component {
           open={this.state.open}
           onRequestChange={open => this.setState({open})}
         >
-          <MenuItem onTouchTap={() => this.handleClose('/')}>Home</MenuItem>
-          <MenuItem onTouchTap={() => this.handleClose('/')}>My Path</MenuItem>
-          <MenuItem onTouchTap={() => this.handleClose('/paths')}>Paths</MenuItem>
-          <MenuItem onTouchTap={() => this.handleClose('/templates')}>Templates</MenuItem>
-          <MenuItem onTouchTap={() => this.handleClose('/skills')}>Skills</MenuItem>
+          <MenuItem leftIcon={<ActionHome />} onTouchTap={() => this.handleClose('/')}>Home</MenuItem>
+          <MenuItem leftIcon={<ActionAccountCircle />} onTouchTap={() => this.handleClose('/')}>My Path</MenuItem>
+          <MenuItem leftIcon={<ActionSupervisorAccount />} onTouchTap={() => this.handleClose('/paths')}>Paths</MenuItem>
+          <MenuItem leftIcon={<ActionDashboard />} onTouchTap={() => this.handleClose('/templates')}>Templates</MenuItem>
+          <MenuItem leftIcon={<ActionGrade />} onTouchTap={() => this.handleClose('/skills')}>Skills</MenuItem>
         </LeftNav>
       </nav>
     )

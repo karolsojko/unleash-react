@@ -22,6 +22,7 @@ export class Path extends React.Component {
             primaryText={cards[id].type}
             secondaryText={cards[id].task}
             secondaryTextLines={2}
+            style={{backgroundColor: cards[id].achieved ? Colors.green200 : null}}
             leftAvatar={
               <Avatar
                 color={Colors.pinkA200} backgroundColor={Colors.transparent}
